@@ -74,7 +74,7 @@ main{padding-block:28px 64px;display:grid;gap:28px}
 .ft.sel rect,.ft.sel circle{fill:var(--accent-soft);stroke:var(--accent);stroke-width:3}
 .ft.good rect,.ft.good circle{fill:var(--ok-soft);stroke:var(--ok);stroke-width:3}.ft.badt rect,.ft.badt circle{fill:var(--bad-soft);stroke:var(--bad);stroke-width:3}
 .ftn{fill:var(--ink);font:700 26px Inter,sans-serif;text-anchor:middle}.ftc{fill:var(--muted);font:600 18px Inter,sans-serif;text-anchor:middle}
-.fmk path{stroke:var(--accent);stroke-width:4;marker-end:none}.fmk text{fill:var(--accent);font:600 18px Inter,sans-serif}
+.fmk path{stroke:var(--accent);stroke-width:10;stroke-linecap:round}.fmk text{fill:var(--accent);font:600 18px Inter,sans-serif}
 .fb{margin:0;font-weight:600}.fb.ok{color:var(--ok)}.fb.bad{color:var(--bad)}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px;min-width:0}
 .panel{background:var(--sunk);border-radius:var(--r);padding:18px;min-width:0}
@@ -7461,26 +7461,27 @@ Ky cikël nuk mbaron kurrë. Sapo një dobësi përmirësohet, tjetra del në pa
 
 /* Planimetria (skicë nga vizatimi i Pandiolës, 2026-11-02). Koordinatat janë skematike. */
 const FLOOR_ZONES=[
- {k:"PR",n:"Pedana e re",d:"Verandë me xham. Ka derën e vet në të majtë.",x:290,y:20,w:890,h:290},
- {k:"PI",n:"Salla Pishina",d:"Verandë me xham, me pamje nga pishina e jashtme.",x:20,y:20,w:250,h:890},
- {k:"SB",n:"Salla Brenda",d:"Salla e brendshme. Mysafirët hyjnë nga e majta.",x:290,y:330,w:890,h:580}
+ {k:"PR",n:"Pedana e re",d:"Verandë me xham, me hyrje më vete. Bashkë me Sallën Pishina formon një L pa ndarje.",x:290,y:20,w:890,h:290},
+ {k:"PI",n:"Salla Pishina",d:"Verandë me xham, me pamje nga pishina e jashtme. Bashkë me Pedanën e re formon një L pa ndarje.",x:20,y:20,w:250,h:890},
+ {k:"SB",n:"Salla Brenda",d:"Salla e brendshme, me hyrje më vete.",x:290,y:330,w:890,h:560},
+ {k:"PV",n:"Pedana e vjetër",d:"Pedana ngjitur me Sallën Brenda, me tavolinat 22–29.",x:290,y:910,w:890,h:270}
 ];
 /* n, zona, min, max, x/y = qendra, w/h, round */
 const FLOOR=[
- {n:1,z:"PI",min:5,max:8,x:145,y:120,w:170,h:80},
+ {n:1,z:"PI",min:5,max:8,x:145,y:120,w:170,h:80,note:"Ndodhet në qoshen ku bashkohen Salla Pishina dhe Pedana e re, që janë një L pa ndarje."},
  {n:3,z:"PR",min:2,max:5,x:330,y:85,w:62,h:95},{n:5,z:"PR",min:2,max:5,x:450,y:85,w:62,h:95},{n:6,z:"PR",min:2,max:5,x:570,y:85,w:62,h:95},
  {n:8,z:"PR",min:2,max:5,x:690,y:85,w:90,h:90,round:1},{n:10,z:"PR",min:2,max:5,x:810,y:85,w:62,h:95},{n:12,z:"PR",min:2,max:5,x:925,y:85,w:62,h:95},{n:15,z:"PR",min:2,max:5,x:1040,y:85,w:62,h:95},
  {n:2,z:"PR",min:2,max:2,x:330,y:230,w:58,h:58},{n:4,z:"PR",min:2,max:2,x:450,y:230,w:58,h:58},{n:7,z:"PR",min:2,max:2,x:690,y:230,w:58,h:58},
  {n:9,z:"PR",min:2,max:2,x:810,y:230,w:58,h:58},{n:11,z:"PR",min:2,max:2,x:925,y:230,w:58,h:58},{n:14,z:"PR",min:2,max:2,x:1040,y:230,w:58,h:58},
  {n:16,z:"PI",min:2,max:4,x:75,y:390,w:64,h:52},{n:18,z:"PI",min:2,max:4,x:75,y:530,w:64,h:52},{n:20,z:"PI",min:2,max:4,x:75,y:670,w:64,h:52},
  {n:17,z:"PI",min:2,max:2,x:205,y:460,w:58,h:58},{n:19,z:"PI",min:2,max:2,x:205,y:610,w:58,h:58},{n:21,z:"PI",min:4,max:6,x:175,y:820,w:100,h:56},
- {n:30,z:"SB",min:8,max:8,x:410,y:450,w:92,h:48},{n:33,z:"SB",min:4,max:4,x:560,y:450,w:56,h:48},{n:35,z:"SB",min:4,max:4,x:700,y:450,w:56,h:48},{n:36,z:"SB",min:4,max:4,x:830,y:450,w:56,h:48},{n:38,z:"SB",min:4,max:4,x:1070,y:430,w:56,h:48},
- {n:31,z:"SB",min:4,max:4,x:410,y:575,w:56,h:48},{n:32,z:"SB",min:4,max:4,x:560,y:575,w:56,h:48},{n:34,z:"SB",min:4,max:4,x:700,y:575,w:56,h:48},{n:37,z:"SB",min:8,max:8,x:830,y:600,w:56,h:96},{n:39,z:"SB",min:4,max:4,x:1070,y:550,w:56,h:48},
- {n:40,z:"SB",min:4,max:4,x:1070,y:730,w:56,h:48},{n:41,z:"SB",min:4,max:4,x:1070,y:820,w:56,h:48}
+ {n:30,z:"SB",min:8,max:8,x:410,y:450,w:92,h:48},{n:33,z:"SB",min:2,max:4,x:560,y:450,w:56,h:48},{n:35,z:"SB",min:2,max:4,x:700,y:450,w:56,h:48},{n:36,z:"SB",min:2,max:4,x:830,y:450,w:56,h:48},{n:38,z:"SB",min:2,max:4,x:1070,y:430,w:56,h:48},
+ {n:31,z:"SB",min:2,max:4,x:410,y:575,w:56,h:48},{n:32,z:"SB",min:2,max:4,x:560,y:575,w:56,h:48},{n:34,z:"SB",min:2,max:4,x:700,y:575,w:56,h:48},{n:37,z:"SB",min:8,max:8,x:830,y:600,w:56,h:96},{n:39,z:"SB",min:2,max:4,x:1070,y:550,w:56,h:48},
+ {n:22,z:"PV",min:2,max:6,x:370,y:1095,w:110,h:56},{n:23,z:"PV",min:2,max:5,x:450,y:985,w:92,h:56},{n:24,z:"PV",min:2,max:5,x:550,y:1095,w:92,h:56},{n:25,z:"PV",min:2,max:5,x:670,y:1095,w:92,h:56},
+ {n:26,z:"PV",min:2,max:5,x:760,y:985,w:92,h:56},{n:27,z:"PV",min:2,max:5,x:860,y:1095,w:92,h:56},{n:28,z:"PV",min:2,max:5,x:990,y:985,w:92,h:56},{n:29,z:"PV",min:4,max:7,x:1095,y:1095,w:110,h:56},
+ {n:40,z:"SB",min:2,max:4,x:1070,y:730,w:56,h:48},{n:41,z:"SB",min:2,max:4,x:1070,y:820,w:56,h:48}
 ];
-/* Lexime për t'u konfirmuar */
-const FLOOR_CHECK=["Nuk ka tavolinë 13. E lamë qëllimisht apo është harruar?","Te Salla Brenda, tavolina poshtë 38 duket si “35” në vizatim. E vendosëm si 39.","Tavolina 1 (5–8 persona) e vendosëm te Salla Pishina, lart majtas. Konfirmo sallën.","Te Salla Brenda shkruhet vetëm një numër (4 ose 8). E morëm si kapacitet maksimal.","Numrat 22–29 nuk janë në vizatim. A janë te Pedana e vjetër?"];
-
+const FLOOR_CHECK=["Tavolinat e 8-ve te Salla Brenda (30 dhe 37): sa është minimumi?","Pozicionet janë skicë e thjeshtuar e vizatimit, jo në shkallë."];
 </script>
 <script>
 (function(){
@@ -7967,13 +7968,13 @@ function flSvg(){
     const shape=t.round?`<circle cx="${t.x}" cy="${t.y}" r="${t.w/2}"/>`:`<rect x="${t.x-t.w/2}" y="${t.y-t.h/2}" width="${t.w}" height="${t.h}" rx="6"/>`;
     const hide=FL.mode==="find";
     return `<g class="${cls.join(" ")}" data-t="${t.n}" tabindex="0" role="button" aria-label="${hide?"Tavolinë":"Tavolina "+t.n+", "+capTxt(t)+" persona"}">${shape}<text x="${t.x}" y="${t.y-3}" class="ftn">${hide&&!(FL.hit&&(FL.hit.n===t.n||FL.q.n===t.n))?"":t.n}</text>${hide?"":`<text x="${t.x}" y="${t.y+15}" class="ftc">${capTxt(t)}</text>`}</g>`}).join("");
-  const marks=`<g class="fmk"><path d="M296 170 h-30" /><text x="300" y="150">Dera e pedanës</text><path d="M296 880 h-30"/><text x="300" y="870">Hyrja e mysafirëve</text></g>`;
-  return `<svg viewBox="0 0 1200 930" class="fpsvg" role="img" aria-label="Skica e sallave dhe tavolinave">${zs}${marks}${ts}</svg>`;
+  const marks=`<g class="fmk"><path d="M1180 120 v60"/><text x="1168" y="112" text-anchor="end">Hyrja</text><path d="M1180 370 v70"/><text x="1168" y="362" text-anchor="end">Hyrja</text><path d="M70 910 h70"/><text x="70" y="950">Hyrja</text></g>`;
+  return `<svg viewBox="0 0 1200 1200" class="fpsvg" role="img" aria-label="Skica e sallave dhe tavolinave">${zs}${marks}${ts}</svg>`;
 }
 function flDetail(){
   const t=FLOOR.find(x=>x.n===FL.sel);if(!t)return `<p class="muted" style="margin:0">Kliko një tavolinë për të parë sallën dhe kapacitetin.</p>`;
   const z=zoneOf(t.z);
-  return `<p class="eyebrow">${esc(z.n)}</p><h2 style="margin:0">Tavolina ${t.n}</h2><p style="margin:0">${t.min===t.max?`${t.max} persona`:`Nga ${t.min} deri në ${t.max} persona`}${t.round?", e rrumbullakët":""}.</p><p class="muted" style="margin:0;font-size:14px">${esc(z.d)}</p>`;
+  return `<p class="eyebrow">${esc(z.n)}</p><h2 style="margin:0">Tavolina ${t.n}</h2><p style="margin:0">${t.min===t.max?`${t.max} persona`:`Nga ${t.min} deri në ${t.max} persona`}${t.round?", e rrumbullakët":""}.</p>${t.note?`<p style="margin:0;font-size:14px">${esc(t.note)}</p>`:""}<p class="muted" style="margin:0;font-size:14px">${esc(z.d)}</p>`;
 }
 function flNewQ(){
   const pool=FLOOR.filter(t=>!FL.z||t.z===FL.z);let q;do{q=pool[Math.floor(Math.random()*pool.length)]}while(pool.length>1&&FL.q&&q.n===FL.q.n);
@@ -7992,7 +7993,7 @@ function viewFloor(){
   const main=FL.mode==="list"?`<div class="grid2">${FLOOR_ZONES.filter(z=>!FL.z||z.k===FL.z).map(z=>`<section class="card stack"><h2 style="margin:0">${esc(z.n)}</h2><div class="tablewrap"><table><thead><tr><th>Tavolina</th><th style="text-align:right">Persona</th></tr></thead><tbody>${FLOOR.filter(t=>t.z===z.k).sort((a,b)=>a.n-b.n).map(t=>`<tr><td><b>${t.n}</b>${t.round?' <span class="muted">(e rrumbullakët)</span>':""}</td><td class="num">${capTxt(t)}</td></tr>`).join("")}</tbody></table></div></section>`).join("")}</div>`
    :`<div class="fpwrap"><div class="card fpmap">${flSvg()}</div><aside class="card stack fpside" aria-live="polite">${side}</aside></div>`;
   return `<section class="stack"><p class="eyebrow">Salla</p><h1>Planimetria</h1><p class="muted" style="max-width:66ch">Çdo kamarier duhet ta njohë sallën përmendësh: numrin e çdo tavoline, sa persona merr dhe nga hyjnë mysafirët. Kështu nuk ka pyetje “cila është 14-a?” gjatë shërbimit, dhe ushqimi shkon te tavolina e duhur pa u vonuar. Numri i dytë te çdo tavolinë është kapaciteti (min–maks).</p>${sum}${zsel}${modes}</section>${main}
-  ${S.isMgr?`<section class="card stack"><p class="eyebrow">Për shefin: konfirmo këto lexime të vizatimit</p><ul style="margin:0;padding-left:20px">${FLOOR_CHECK.map(c=>`<li>${esc(c)}</li>`).join("")}</ul><p class="muted" style="margin:0;font-size:13px">Pozicionet janë skicë e thjeshtuar e vizatimit, jo në shkallë. Pedana e vjetër shtohet kur të vijë vizatimi i saj.</p></section>`:""}`;
+  ${S.isMgr?`<section class="card stack"><p class="eyebrow">Për shefin: shënime</p><ul style="margin:0;padding-left:20px">${FLOOR_CHECK.map(c=>`<li>${esc(c)}</li>`).join("")}</ul></section>`:""}`;
 }
 function bindFloor(){
   const v=$("#view"), re=()=>{v.innerHTML=viewFloor();bindFloor()};
