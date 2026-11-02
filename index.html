@@ -1045,7 +1045,7 @@ const M12 = [
 /* Moduli 3: Mise en place dhe shtrimi */
 const M4 = [
 {
- id:"P1", t:"Mise en place: gjithçka në vendin e vet", min:15,
+ id:"P1", std:[["HD28 · BL29","Menutë në gjendje perfekte: pa njolla, pa pika uji, pa dëmtime"],["HD59 · BL42","Ambient i rehatshëm: temperatura e duhur, muzika në volum të përshtatshëm"],["HD60","Tavolina dhe karriget të rehatshme, me hapësirë të mjaftueshme"]], t:"Mise en place: gjithçka në vendin e vet", min:15,
  goal:"Para hapjes, salla, stacionet dhe bari janë 100% gati, që gjatë shërbimit stafi të mos largohet asnjëherë nga salla për të kërkuar diçka.",
  theory:[
   ["Origjina","“Mise en place” do të thotë “vënë në vend”. Auguste Escoffier, babai i kuzhinës moderne, e bëri parimin bazë të brigadës: çdo gjë përgatitet para shërbimit. Në sallë vlen e njëjta: shërbimi i shpejtë dhe i qetë fitohet para se të hyjë mysafiri i parë."],
@@ -1053,7 +1053,7 @@ const M4 = [
   ["Stacioni si bankë pune","Stacioni i shërbimit (side station) është “kuzhina” e kamarierit. Çdo stacion ka të njëjtin plan, që çdo kolegu të gjejë gjithçka pa pyetur."]
  ],
  steps:[
-  ["Stacioni i shërbimit","Takëme rezervë për 2 rrotullime të tavolinave, peceta liri, pjata buke, sous-assiette, tabaka, crumber, hapëse vere, peceta shërbimi, karafa uji, menutë (të kontrolluara), mbajtëset e faturës, stilolaps, POS i lëvizshëm i karikuar."],
+  ["Stacioni i shërbimit","Takëme rezervë për 2 rrotullime të tavolinave, peceta liri, pjata buke, sous-assiette, tabaka, crumber, hapëse vere, peceta shërbimi, karafa uji, menutë (të kontrolluara një nga një: pa njolla, pa pika uji, pa cepa të dëmtuar), mbajtëset e faturës, stilolaps, POS i lëvizshëm i karikuar."],
   ["Salla","Tavolinat të niveluara (pa lëkundje), karriget në distancë të barabartë, mbulesat pa rrudha, ndriçimi dhe muzika në nivelin e mbrëmjes, temperatura 21–23°C."],
   ["Bari","Akulli i mbushur, garniturat të prera të freskëta (jo më shumë se për 1 turn), shishet e hapura të datuara, gotat e polishuara, snacks gati, coaster-at, menutë e pijeve."],
   ["Kontrolli 15 minuta para hapjes","Supervizori kalon me listën e kontrollit. Asgjë nuk hapet pa këtë kontroll."]
@@ -1090,7 +1090,7 @@ const M4 = [
  ]
 },
 {
- id:"P3", t:"Gotat, porcelani dhe lirit", min:15,
+ id:"P3", std:[["HD53","Gotat, porcelani dhe takëmet të cilësisë së lartë dhe të koordinuara mes tyre"],["HD49–52","Tavolina, lirit, gotat dhe takëmet të pastra dhe në gjendje të shkëlqyer"]], t:"Gotat, porcelani dhe lirit", min:15,
  goal:"Çdo gotë, pjatë dhe pecetë që del në sallë është pa njollë, pa çarje dhe pa erë, sipas HD52 dhe BL39.",
  theory:[
   ["Pse pastërtia e dukshme","Mysafiri nuk e sheh kuzhinën, por e sheh gotën. Një njollë në gotë është “prova” se diçka nuk shkon edhe në vende që nuk duken. Forbes e mat në çdo pjesë: HD50 (pecetat), HD52 (gotat, porcelani, takëmet), BL39 (bari)."],
@@ -1645,7 +1645,7 @@ const M6 = [
 {
  id:"D1", t:"Telefonata e porosisë", min:15,
  goal:"Çdo porosi në telefon merret me qetësi, saktësi dhe me kohë dorëzimi të qartë, sipas standardeve të Forbes për room service.",
- std:[["IRD1","Bisedë telefonike e qetë dhe e qartë"],["IRD2","Mysafiri pyetet gjithmonë para se të vihet në pritje"],["IRD3","Asnjë pritje mbi 30 sekonda pa ofruar rikthim telefonate"],["IRD12","Emri përdoret natyrshëm"],["IRD19","Marrësi i porosisë diskuton me njohuri ushqimet dhe pijet"],["IRD20","Kohë dorëzimi e thënë dhe e respektuar ±5 min, as më herët as më vonë"]],
+ std:[["IRD4–17","Të njëjtat sjellje si në restorant: gjuha, toni, buzëqeshja, interesi, parashikimi, paraqitja, asnjë “jo” pa alternativë (Moduli 4, mësimet 3, 4 dhe 9)"],["IRD1","Bisedë telefonike e qetë dhe e qartë"],["IRD2","Mysafiri pyetet gjithmonë para se të vihet në pritje"],["IRD3","Asnjë pritje mbi 30 sekonda pa ofruar rikthim telefonate"],["IRD12","Emri përdoret natyrshëm"],["IRD19","Marrësi i porosisë diskuton me njohuri ushqimet dhe pijet"],["IRD20","Kohë dorëzimi e thënë dhe e respektuar ±5 min, as më herët as më vonë"]],
  kpi:[["30 s","pritje maksimale në telefon"],["±5 min","saktësia e dorëzimit"]],
  theory:[
   ["Zëri është e vetmja përshtypje","Në telefon mysafiri nuk sheh buzëqeshjen, uniformën ose sallën. Gjithçka kalon nga toni, ritmi dhe qartësia. Buzëqeshja dëgjohet: zëri ndryshon kur buzëqesh."],
@@ -1669,7 +1669,7 @@ const M6 = [
 {
  id:"D2", t:"Dorëzimi dhe shtrimi në dhomë", min:20,
  goal:"Porosia mbërrin brenda kohës, shtrohet në dhomë si në restorant dhe mysafiri fillon të hajë pa bërë asgjë vetë.",
- std:[["IRD21","Dreka dhe darka ≤ 30 min (hotel); mëngjesi ≤ 25 min"],["IRD22","Tavolina shtrohet që vakti të jetë gati për të filluar"],["IRD23","Pijet hapen dhe derdhen në dhomë"],["IRD24","Vera me gotë prezantohet në shishe dhe derdhet në dhomë"],["IRD25","Karrigia sillet te tavolina, ulja komode"],["IRD26","Asnjë plastikë ose kapak nuk mbetet mbi pjata"],["IRD27","Lule ose element dekorativ"],["IRD43","Pjatat e përdorura hiqen brenda 10 min (hotel) ose në kohën e caktuar ±5 min"]],
+ std:[["IRD44","Shërbim pa vonesa ose ndërprerje të tepërta"],["IRD21","Dreka dhe darka ≤ 30 min (hotel); mëngjesi ≤ 25 min"],["IRD22","Tavolina shtrohet që vakti të jetë gati për të filluar"],["IRD23","Pijet hapen dhe derdhen në dhomë"],["IRD24","Vera me gotë prezantohet në shishe dhe derdhet në dhomë"],["IRD25","Karrigia sillet te tavolina, ulja komode"],["IRD26","Asnjë plastikë ose kapak nuk mbetet mbi pjata"],["IRD27","Lule ose element dekorativ"],["IRD43","Pjatat e përdorura hiqen brenda 10 min (hotel) ose në kohën e caktuar ±5 min"]],
  kpi:[["30 min","drekë/darkë"],["25 min","mëngjes"],["10 min","heqja e tabakasë pas thirrjes"]],
  steps:[
   ["Kontrolli para nisjes","Porosia krahasohet me faturën: çdo pjatë, takëm, salcë, kripë, piper, peceta liri, lule. Ushqimi i nxehtë në kapakë të ngrohur ose në karrocë me ngrohës."],
@@ -1691,7 +1691,7 @@ const M6 = [
 {
  id:"D3", t:"Cilësia dhe detajet e room service", min:10,
  goal:"Çdo element i tabakasë është në gjendje perfekte dhe ushqimi mbërrin si në restorant.",
- std:[["IRD28–33","Prezantim, temperaturë, freski, shije, sasi, gatim siç u kërkua"],["IRD34","Çdo artikull i porositur shërbehet saktë"],["IRD35","Salcat dhe shtesat prezantohen me elegancë"],["IRD36–37","Kafe dhe çaj specialë në çdo kohë, shërbim i rafinuar"],["IRD38–42","Tabaka/karroca, lirit, gotat dhe takëmet perfekte"]],
+ std:[["IRD18","Menuja e room service ofron shumëllojshmëri tërheqëse"],["IRD28–33","Prezantim, temperaturë, freski, shije, sasi, gatim siç u kërkua"],["IRD34","Çdo artikull i porositur shërbehet saktë"],["IRD35","Salcat dhe shtesat prezantohen me elegancë"],["IRD36–37","Kafe dhe çaj specialë në çdo kohë, shërbim i rafinuar"],["IRD38–42","Tabaka/karroca, lirit, gotat dhe takëmet perfekte"]],
  steps:[
   ["Salcat","Në enë të vogla porcelani, jo në paketa."],
   ["Kafe dhe çaj","Termos ose çajnik i ngrohur, filxhan me pjatë, qumësht i ngrohtë anash."],
@@ -1713,7 +1713,7 @@ const M7 = [
 {
  id:"N1", t:"Pritja dhe kujdesi në pishinë", min:15,
  goal:"Çdo mysafir në pishinë ose plazh shoqërohet, rregullohet dhe kujdeset pa pasur nevojë të kërkojë asgjë.",
- std:[["PB15","Mysafiri shoqërohet te shezlongu, ndihmohet me rregullimin dhe i ofrohet ujë"],["PB16","Gjatë 90 minutave në mot të ngrohtë, ofrohet proaktivisht një freskim falas"],["PB17","Pijet dhe snacks sinjalizohen lehtë dhe dorëzohen brenda 10 minutave"],["PB18","Kremi i diellit i disponueshëm"],["PB19","Peshqirë të bollshëm automatikisht"],["PB20","Peshqirët e përdorur ruhen diskret"],["PB24","Hapësirë dhe privatësi, mundësi për t’u larguar nga fëmijët dhe grupet"]],
+ std:[["PB1–14","Të njëjtat sjellje si në restorant: njohja e mysafirit, gjuha, buzëqeshja, emri, paraqitja, asnjë “jo” pa alternativë (Moduli 4, mësimet 3, 4 dhe 9)"],["PB30","Menuja e pishinës ofron zgjedhje të veçantë dhe interesante"],["PB33–35","Porosia e saktë, fatura e saktë, ushqim i freskët dhe shërbim pa vonesa"],["PB15","Mysafiri shoqërohet te shezlongu, ndihmohet me rregullimin dhe i ofrohet ujë"],["PB16","Gjatë 90 minutave në mot të ngrohtë, ofrohet proaktivisht një freskim falas"],["PB17","Pijet dhe snacks sinjalizohen lehtë dhe dorëzohen brenda 10 minutave"],["PB18","Kremi i diellit i disponueshëm"],["PB19","Peshqirë të bollshëm automatikisht"],["PB20","Peshqirët e përdorur ruhen diskret"],["PB24","Hapësirë dhe privatësi, mundësi për t’u larguar nga fëmijët dhe grupet"]],
  kpi:[["90 min","freskim falas proaktiv"],["10 min","dorëzimi i pijeve"]],
  theory:[
   ["Shërbimi i jashtëm është ndryshe","Në pishinë mysafiri është i relaksuar, shpesh me sy të mbyllur, me libër ose në ujë. Shërbimi duhet të jetë i dukshëm kur nevojitet dhe i padukshëm kur jo. Stafi skanon zonën çdo 2–3 minuta dhe reagon ndaj gjestit më të vogël."],
@@ -1736,7 +1736,7 @@ const M7 = [
 {
  id:"N2", t:"Siguria dhe higjiena në pishinë", min:10,
  goal:"Zona e pishinës është gjithmonë e pastër, e sigurt dhe e organizuar.",
- std:[["PB21","Zona me pamje të organizuar dhe profesionale"],["PB22","Shezlongjet, jastëkët, peshqirët dhe çadrat në gjendje të shkëlqyer"],["PB23","Pastërti dhe higjienë e plotë"]],
+ std:[["PB25 · PB28 · PB29","Ambienti i pishinës i veçantë, me aktivitete dhe pajisje të shkëlqyera (përgjegjësi e menaxhimit; stafi raporton çdo mangësi)"],["PB21","Zona me pamje të organizuar dhe profesionale"],["PB22","Shezlongjet, jastëkët, peshqirët dhe çadrat në gjendje të shkëlqyer"],["PB23","Pastërti dhe higjienë e plotë"]],
  steps:[
   ["Xhami","Asnjë gotë xhami pranë ujit: polikarbonat cilësor që duket si xham. Xhami i thyer pranë pishinës mund të kërkojë zbrazjen e saj."],
   ["Rregullimi","Shezlongjet në vija, peshqirët të palosur njësoj, çadrat të mbyllura kur nuk përdoren."],
@@ -2020,7 +2020,7 @@ const MM = [
 {
  id:"F1", t:"Flower Restaurant: koncepti dhe antipastat", min:25,
  goal:"Çdo kamarier i Flower përshkruan 14 antipastat me përbërësit, alergjenët dhe çmimin, pa parë menunë, dhe di të shpjegojë pjatat e gjalla dhe ato me çmim për kg.",
- std:[["HD24","Diskuton detajet e pjatave"],["HD11","Kryen punën me njohuri dhe aftësi"]],
+ std:[["HD32","Menuja ofron shumëllojshmëri të veçantë dhe interesante"],["HD34–36","Ushqim i freskët, i shijshëm, porcione bujare: kamarieri e kontrollon te pass-i dhe raporton çdo problem"],["HD24","Diskuton detajet e pjatave"],["HD11","Kryen punën me njohuri dhe aftësi"]],
  kpi:[["14","antipasta për t’i ditur përmendësh"],["0","pyetje për kuzhinën që mund t’i përgjigjesh vetë"]],
  theory:[
   ["Kush është Flower","Flower Restaurant është restoranti ynë i peshkut dhe frutave të detit: kuzhinë mesdhetare bashkëkohore me teknika aziatike (kimchi, wasabi, soje, letër orizi) dhe greke (retsina, taramosalata). Mysafiri vjen për freskinë e detit. Çdo përshkrim yt duhet të tregojë freskinë, origjinën dhe teknikën."],
@@ -7463,7 +7463,7 @@ Ky cikël nuk mbaron kurrë. Sapo një dobësi përmirësohet, tjetra del në pa
 /* Moduli: Teknikat e shërbimit (dora e kamarierit, hap pas hapi) */
 const MT = [
 {
- id:"J1", t:"Qëndrimi, ecja dhe lëvizja në sallë", min:20,
+ id:"J1", std:[["HD16 · BL14","Qëndrim i vëmendshëm dhe sjellje profesionale para mysafirit"],["HD9 · BL7","Nevojat parashikohen pa pasur nevojë që mysafiri të kërkojë"],["HD17 · BL15","Diskret dhe jo ndërhyrës, por i vëmendshëm"]], t:"Qëndrimi, ecja dhe lëvizja në sallë", min:20,
  goal:"Kamarieri lëviz në sallë qetë, me siguri dhe pa e shqetësuar mysafirin: di ku qëndron, si ecën, si kalon pranë tavolinave dhe si i afrohet mysafirit.",
  kpi:[["45°","këndi kur qëndron pranë mysafirit"],["1 hap","larg karriges, jo mbi mysafirin"],["0","herë që i jep shpinën tavolinës duke folur"]],
  steps:[
@@ -7487,7 +7487,7 @@ const MT = [
  ]
 },
 {
- id:"J2", t:"Mbajtja e pjatave: 1, 2 dhe 3 pjata", min:25,
+ id:"J2", std:[["HD37 · HD38","Prezantim i saktë, pjata e kontrolluar te pass-i"],["HD39","Çdo gjë shërbehet saktë, pa pyetur “kush e kishte?”"],["HD33","E nxehta e nxehtë, e ftohta e ftohtë"]], t:"Mbajtja e pjatave: 1, 2 dhe 3 pjata", min:25,
  goal:"Çdo kamarier mban me siguri 2 pjata, dhe kamarierët me përvojë 3, pa prekur ushqimin ose buzën e brendshme të pjatës, dhe i vendos te tavolina pa zhurmë.",
  kpi:[["3","pjata maksimumi në duar në Flower"],["0","gishta mbi pjesën ku është ushqimi"],["1","lëvizje e qetë për çdo pjatë"]],
  steps:[
@@ -7511,7 +7511,7 @@ const MT = [
  ]
 },
 {
- id:"J3", t:"Shërbimi dhe heqja e pjatave", min:25,
+ id:"J3", std:[["HD55","Heqja e pjatave bëhet në kohën e duhur"],["HD27","Ritmi i vaktit është i qëndrueshëm"],["HD58","Salla e organizuar dhe me pamje profesionale"]], t:"Shërbimi dhe heqja e pjatave", min:25,
  goal:"Pjatat shërbehen dhe hiqen me rend, nga ana e duhur dhe pa zhurmë, që tavolina të duket gjithmonë e rregullt dhe mysafiri të mos ndërpritet.",
  steps:[
   ["Rendi i shërbimit","Fillohet me zonjat dhe të moshuarit, pastaj zotërinjtë, dhe organizatori i fundit. Nëse tavolina ka fëmijë, ata shërbehen shpesh të parët, sepse prindërit qetësohen. Në Flower ndjekim rendin sipas pozicioneve, por me këtë përparësi."],
@@ -7535,7 +7535,7 @@ const MT = [
  ]
 },
 {
- id:"J4", t:"Tabakaja: ngarkimi, mbajtja dhe shkarkimi", min:20,
+ id:"J4", std:[["BL19 · BL24","Pijet shërbehen saktë dhe në temperaturën e duhur"],["BL28","Tavolina dhe banaku mirëmbahen vazhdimisht"]], t:"Tabakaja: ngarkimi, mbajtja dhe shkarkimi", min:20,
  goal:"Tabakaja mbahet e qëndrueshme me një dorë, ngarkohet me rend dhe shkarkohet pranë tavolinës pa lëvizje të rrezikshme.",
  steps:[
   ["Llojet","Tabakaja e vogël e rrumbullakët (me sipërfaqe kundër rrëshqitjes) për pijet dhe gotat. Tabakaja e madhe ovale për pjatat ose për heqjen, e cila mbahet mbi shpatull dhe përdoret vetëm prapa skene ose me mbajtëse (tray stand)."],
@@ -7557,7 +7557,7 @@ const MT = [
  ]
 },
 {
- id:"J5", t:"Gotat dhe takëmet: prekja, polirimi, ndërrimi", min:20,
+ id:"J5", std:[["HD54","Të gjitha takëmet e duhura janë vendosur"],["HD49–52 · BL39–40","Gotat, porcelani dhe takëmet të pastra dhe pa shenja"]], t:"Gotat dhe takëmet: prekja, polirimi, ndërrimi", min:20,
  goal:"Gotat dhe takëmet preken vetëm nga pjesët që nuk i prek mysafiri, polirohen pa shenja dhe ndërrohen për çdo pjatë sipas menusë.",
  steps:[
   ["Prekja e gotave","Gota me këmbë mbahet nga këmba. Gota pa këmbë (tumbler, highball) nga pjesa e poshtme. Kurrë nga buza. Gota bosh me këmbë mund të mbahen të përmbysura mes gishtave vetëm prapa skene, kurrë para mysafirëve."],
@@ -7579,7 +7579,7 @@ const MT = [
  ]
 },
 {
- id:"J6", t:"Uji dhe vera: derdhja pa pikuar", min:30,
+ id:"J6", std:[["HD22","Rimbushjet ofrohen brenda 1 minute pasi pija mbaron"],["BL20 · BL21","Etiketa tregohet, ofrohet provë dhe vera derdhet para mysafirit"],["HD25 · BL8","Diskuton pijet me njohuri"]], t:"Uji dhe vera: derdhja pa pikuar", min:30,
  goal:"Uji dhe vera derdhen nga e djathta, në nivelin e duhur, pa pikuar dhe pa prekur gotën, dhe shishja e verës prezantohet e hapet me teknikë të saktë.",
  steps:[
   ["Uji","Nga e djathta, me shishen ose karafën në dorën e djathtë. Gota mbetet mbi tavolinë, nuk ngrihet. Mbushet rreth 3/4 dhe rimbushet pa u kërkuar kur bie nën gjysmë."],
@@ -7605,7 +7605,7 @@ const MT = [
  ]
 },
 {
- id:"J7", t:"Buka, peceta dhe vendosja e mysafirit", min:20,
+ id:"J7", std:[["HD19","Ndihma me karrigen dhe pecetën kur mysafiri ulet"],["HD40","Salcat dhe shtesat prezantohen me elegancë"]], t:"Buka, peceta dhe vendosja e mysafirit", min:20,
  goal:"Mysafiri ulet, peceta i ofrohet dhe buka shërbehet me elegancë, në rendin dhe nga ana e duhur.",
  steps:[
   ["Ndihma me karrigen","Tërhiq karrigen me të dy duart, ofroje kur mysafiri është para saj dhe shtyje butë ndërsa ai ulet. Fillo me zonjat dhe të moshuarit."],
@@ -7613,7 +7613,8 @@ const MT = [
   ["Kur mysafiri ngrihet","Peceta e lënë mbi karrige ose tavolinë palohet bukur dhe vendoset në të majtë të vendit. Nëse është ndotur, zëvendësohet me një të re."],
   ["Shërbimi i bukës","Nga e majta, me piskatore buke ose me lugë dhe pirun, nga shporta te pjata e bukës. Ofro llojet e bukës së ditës dhe pyet: “Çfarë preferoni?”"],
   ["Gjalpi dhe vaji","Gjalpi në temperaturë që përhapet, me thikën e gjalpit mbi pjatën e bukës. Vaji i ullirit shërbehet në pjatëz të vogël, nga e majta."],
-  ["Rimbushja","Kur pjata e bukës është bosh dhe pjata kryesore nuk ka ardhur ende, ofro përsëri. Buka hiqet bashkë me pjatën e bukës para ëmbëlsirës."]
+  ["Rimbushja","Kur pjata e bukës është bosh dhe pjata kryesore nuk ka ardhur ende, ofro përsëri. Buka hiqet bashkë me pjatën e bukës para ëmbëlsirës."],
+  ["Salcat dhe shtesat","Çdo salcë ose shtesë që kërkon mysafiri (vaj, uthull, kripë deti, piper i bluar në çast, salcë anësore) sillet në pjatëz të vogël ose në enën e saj, mbi një pjatë me pecetë, me lugë të vogël. Kurrë në paketë ose në shishe me etiketë tregtare."]
  ],
  avoid:["Hapja e pecetës para fytyrës së mysafirit ose me shkundje","Buka e marrë me dorë","Buka nga e djathta, mbi pjatën kryesore","Gjalpi i ngurtë nga frigoriferi","Peceta e lënë e rrëmuar kur mysafiri largohet përkohësisht"],
  drill:{t:"Uljet dhe peceta",dur:"10 min",how:["4 “mysafirë” hyjnë dhe ulen.","Kamarieri ndihmon me karrigen, fillon me zonjat.","Ofron pecetën te secili.","Shërben bukën nga e majta me piskatore."],pass:"Rend i saktë, pa shkundje pecete, buka nga e majta pa e prekur me dorë."},
@@ -7627,7 +7628,7 @@ const MT = [
  ]
 },
 {
- id:"J8", t:"Pastrimi i tavolinës para ëmbëlsirës (crumbing)", min:15,
+ id:"J8", std:[["HD49","Tavolina në gjendje të shkëlqyer dhe plotësisht e pastër"],["HD58","Salla e organizuar dhe me pamje profesionale"]], t:"Pastrimi i tavolinës para ëmbëlsirës (crumbing)", min:15,
  goal:"Para ëmbëlsirës tavolina pastrohet nga thërrimet dhe çdo gjë e tepërt, që mysafiri të ndiejë një fillim të ri.",
  steps:[
   ["Çfarë hiqet","Pas pjatës kryesore hiqen: pjata e bukës, thika e gjalpit, kripa dhe piperi, vaji, gotat bosh që nuk do të përdoren dhe takëmet e tepërta."],
@@ -7647,7 +7648,7 @@ const MT = [
  ]
 },
 {
- id:"J9", t:"Kafeja, çaji dhe ëmbëlsira", min:15,
+ id:"J9", std:[["HD21","Kafeja dhe çaji shërbehen në mënyrë të rafinuar"],["HD22","Kafeja me filtër dhe uji rimbushen pa u kërkuar"]], t:"Kafeja, çaji dhe ëmbëlsira", min:15,
  goal:"Ëmbëlsira, kafeja dhe çaji shërbehen me vendosjen e saktë, në temperaturën e duhur dhe me detajet që e mbyllin darkën bukur.",
  steps:[
   ["Ëmbëlsira","Nga e djathta, si pjatat e tjera. Pjesa më e bukur e ëmbëlsirës drejt mysafirit. Emërtoje me autorin: “Bakllavaja signature e Genti Malavecit.”"],
