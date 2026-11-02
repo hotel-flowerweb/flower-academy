@@ -63,6 +63,19 @@ main{padding-block:28px 64px;display:grid;gap:28px}
 .row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
 .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:16px}
 .grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:14px}
+.fsum{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.fpwrap{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:16px;align-items:start}
+@media (max-width:860px){.fpwrap{grid-template-columns:1fr}}
+.fpmap{padding:10px}.fpsvg{width:100%;height:auto;display:block}
+.fz rect{fill:var(--sunk);stroke:var(--line);stroke-width:2}.fz.dim,.ft.dim{opacity:.3}
+.fzl{fill:var(--muted);font:600 22px Inter,sans-serif;letter-spacing:.04em;text-transform:uppercase}
+.ft{cursor:pointer}.ft rect,.ft circle{fill:var(--surface);stroke:var(--ink);stroke-width:2}
+.ft:hover rect,.ft:hover circle,.ft:focus rect,.ft:focus circle{stroke:var(--accent);stroke-width:3}.ft:focus{outline:none}
+.ft.sel rect,.ft.sel circle{fill:var(--accent-soft);stroke:var(--accent);stroke-width:3}
+.ft.good rect,.ft.good circle{fill:var(--ok-soft);stroke:var(--ok);stroke-width:3}.ft.badt rect,.ft.badt circle{fill:var(--bad-soft);stroke:var(--bad);stroke-width:3}
+.ftn{fill:var(--ink);font:700 26px Inter,sans-serif;text-anchor:middle}.ftc{fill:var(--muted);font:600 18px Inter,sans-serif;text-anchor:middle}
+.fmk path{stroke:var(--accent);stroke-width:4;marker-end:none}.fmk text{fill:var(--accent);font:600 18px Inter,sans-serif}
+.fb{margin:0;font-weight:600}.fb.ok{color:var(--ok)}.fb.bad{color:var(--bad)}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px;min-width:0}
 .panel{background:var(--sunk);border-radius:var(--r);padding:18px;min-width:0}
 hr{border:0;border-top:1px solid var(--line);margin:0}
@@ -7446,6 +7459,28 @@ Ky cikël nuk mbaron kurrë. Sapo një dobësi përmirësohet, tjetra del në pa
 ["Përmbledhje",`Ajo që matet përmirësohet. Çdo anëtar i stafit auditohet dy herë në muaj, në turne dhe zona të ndryshme. Auditi bëhet si inspektori: pa rënë në sy, pa ndërhyrë, vetëm atë që pe, N/A për atë që nuk ndodhi. Paneli lexohet çdo javë, dhe dy dobësitë kryesore bëhen ushtrimet e line-up-it. Synimet: 85 për qind mesatare brenda 3 muajve, 100 për qind me Modulin 2 brenda 6 muajve. Mystery guest një herë në tremujor. Dhe cikli: mat, analizo, trajno, mat përsëri.`]
 ];
 
+/* Planimetria (skicë nga vizatimi i Pandiolës, 2026-11-02). Koordinatat janë skematike. */
+const FLOOR_ZONES=[
+ {k:"PR",n:"Pedana e re",d:"Verandë me xham. Ka derën e vet në të majtë.",x:290,y:20,w:890,h:290},
+ {k:"PI",n:"Salla Pishina",d:"Verandë me xham, me pamje nga pishina e jashtme.",x:20,y:20,w:250,h:890},
+ {k:"SB",n:"Salla Brenda",d:"Salla e brendshme. Mysafirët hyjnë nga e majta.",x:290,y:330,w:890,h:580}
+];
+/* n, zona, min, max, x/y = qendra, w/h, round */
+const FLOOR=[
+ {n:1,z:"PI",min:5,max:8,x:145,y:120,w:170,h:80},
+ {n:3,z:"PR",min:2,max:5,x:330,y:85,w:62,h:95},{n:5,z:"PR",min:2,max:5,x:450,y:85,w:62,h:95},{n:6,z:"PR",min:2,max:5,x:570,y:85,w:62,h:95},
+ {n:8,z:"PR",min:2,max:5,x:690,y:85,w:90,h:90,round:1},{n:10,z:"PR",min:2,max:5,x:810,y:85,w:62,h:95},{n:12,z:"PR",min:2,max:5,x:925,y:85,w:62,h:95},{n:15,z:"PR",min:2,max:5,x:1040,y:85,w:62,h:95},
+ {n:2,z:"PR",min:2,max:2,x:330,y:230,w:58,h:58},{n:4,z:"PR",min:2,max:2,x:450,y:230,w:58,h:58},{n:7,z:"PR",min:2,max:2,x:690,y:230,w:58,h:58},
+ {n:9,z:"PR",min:2,max:2,x:810,y:230,w:58,h:58},{n:11,z:"PR",min:2,max:2,x:925,y:230,w:58,h:58},{n:14,z:"PR",min:2,max:2,x:1040,y:230,w:58,h:58},
+ {n:16,z:"PI",min:2,max:4,x:75,y:390,w:64,h:52},{n:18,z:"PI",min:2,max:4,x:75,y:530,w:64,h:52},{n:20,z:"PI",min:2,max:4,x:75,y:670,w:64,h:52},
+ {n:17,z:"PI",min:2,max:2,x:205,y:460,w:58,h:58},{n:19,z:"PI",min:2,max:2,x:205,y:610,w:58,h:58},{n:21,z:"PI",min:4,max:6,x:175,y:820,w:100,h:56},
+ {n:30,z:"SB",min:8,max:8,x:410,y:450,w:92,h:48},{n:33,z:"SB",min:4,max:4,x:560,y:450,w:56,h:48},{n:35,z:"SB",min:4,max:4,x:700,y:450,w:56,h:48},{n:36,z:"SB",min:4,max:4,x:830,y:450,w:56,h:48},{n:38,z:"SB",min:4,max:4,x:1070,y:430,w:56,h:48},
+ {n:31,z:"SB",min:4,max:4,x:410,y:575,w:56,h:48},{n:32,z:"SB",min:4,max:4,x:560,y:575,w:56,h:48},{n:34,z:"SB",min:4,max:4,x:700,y:575,w:56,h:48},{n:37,z:"SB",min:8,max:8,x:830,y:600,w:56,h:96},{n:39,z:"SB",min:4,max:4,x:1070,y:550,w:56,h:48},
+ {n:40,z:"SB",min:4,max:4,x:1070,y:730,w:56,h:48},{n:41,z:"SB",min:4,max:4,x:1070,y:820,w:56,h:48}
+];
+/* Lexime për t'u konfirmuar */
+const FLOOR_CHECK=["Nuk ka tavolinë 13. E lamë qëllimisht apo është harruar?","Te Salla Brenda, tavolina poshtë 38 duket si “35” në vizatim. E vendosëm si 39.","Tavolina 1 (5–8 persona) e vendosëm te Salla Pishina, lart majtas. Konfirmo sallën.","Te Salla Brenda shkruhet vetëm një numër (4 ose 8). E morëm si kapacitet maksimal.","Numrat 22–29 nuk janë në vizatim. A janë te Pedana e vjetër?"];
+
 </script>
 <script>
 (function(){
@@ -7493,7 +7528,7 @@ async function saveMe(patch){
 
 /* ---------- routing ---------- */
 function routes(){
-  const r=[["home","Kryefaqja"],["akademia","Modulet"],["praktika","Praktika"],["menuja","Menuja"],["verat","Manuali i verës"],["bari","Manuali i barit"],["kohet","Karta e kohëve"]];
+  const r=[["home","Kryefaqja"],["akademia","Modulet"],["praktika","Praktika"],["menuja","Menuja"],["verat","Manuali i verës"],["bari","Manuali i barit"],["kohet","Karta e kohëve"],["planimetria","Planimetria"]];
   if(S.isMgr){r.push(["auditi","Auditi në sallë"],["paneli","Paneli i shefit"])}
   return r;
 }
@@ -7515,7 +7550,7 @@ function renderWho(){
 function render(){
   renderTabs();renderWho();
   const cur=current(); const v=$("#view");
-  if(S.mode!=="loading"&&(S.mode==="local"||S.loaded)&&!S.me.name&&cur!=="kohet"&&cur!=="menuja"&&cur!=="verat"&&cur!=="bari"){v.innerHTML=viewJoin();bindJoin();return}
+  if(S.mode!=="loading"&&(S.mode==="local"||S.loaded)&&!S.me.name&&cur!=="kohet"&&cur!=="menuja"&&cur!=="verat"&&cur!=="bari"&&cur!=="planimetria"){v.innerHTML=viewJoin();bindJoin();return}
   let m;
   if(cur.startsWith("mesimi-")){const l=ALL_LESSONS.find(x=>"mesimi-"+x.id.toLowerCase()===cur);if(l){v.innerHTML=viewLesson(l);bindLesson(l)}else v.innerHTML=viewHome()}
   else if(cur.startsWith("modul-")&&(m=MODS.find(x=>"modul-"+x.n.toLowerCase()===cur))){v.innerHTML=viewModule(m)}
@@ -7527,6 +7562,7 @@ function render(){
   else if(cur==="menuja"){v.innerHTML=viewMenu();bindMenu()}
   else if(cur==="verat"){v.innerHTML=viewManual();bindManual()}
   else if(cur==="bari"){v.innerHTML=viewBar();bindBar()}
+  else if(cur==="planimetria"){v.innerHTML=viewFloor();bindFloor()}
   else if(cur==="auditi"&&S.isMgr){v.innerHTML=viewAudit();bindAudit()}
   else if(cur==="paneli"&&S.isMgr){v.innerHTML=viewPanel()}
   else {v.innerHTML=viewHome()}
@@ -7919,6 +7955,56 @@ function bindBar(){
   v.querySelectorAll("[data-bv]").forEach(b=>b.onclick=()=>{BV.tab=b.dataset.bv;re();scrollTo(0,0)});
   v.querySelectorAll("[data-bs]").forEach(b=>b.onclick=()=>{BV.s=b.dataset.bs;re()});
   const p=$("#wprint");if(p)p.onclick=()=>print();
+}
+/* ---------- planimetria ---------- */
+const FL={z:"",sel:null,mode:"map",q:null,ok:0,tot:0,fb:"",hit:null};
+const capTxt=t=>t.min===t.max?`${t.max}`:`${t.min}–${t.max}`;
+const zoneOf=k=>FLOOR_ZONES.find(z=>z.k===k);
+function flSvg(){
+  const zs=FLOOR_ZONES.map(z=>`<g class="fz ${FL.z&&FL.z!==z.k?"dim":""}"><rect x="${z.x}" y="${z.y}" width="${z.w}" height="${z.h}" rx="14"/><text x="${z.x+14}" y="${z.y+z.h-14}" class="fzl">${esc(z.n)}</text></g>`).join("");
+  const ts=FLOOR.map(t=>{
+    const cls=["ft"];if(FL.z&&FL.z!==t.z)cls.push("dim");if(FL.sel===t.n)cls.push("sel");if(FL.hit&&FL.hit.n===t.n)cls.push(FL.hit.ok?"good":"badt");if(FL.hit&&!FL.hit.ok&&FL.q&&FL.q.n===t.n)cls.push("good");
+    const shape=t.round?`<circle cx="${t.x}" cy="${t.y}" r="${t.w/2}"/>`:`<rect x="${t.x-t.w/2}" y="${t.y-t.h/2}" width="${t.w}" height="${t.h}" rx="6"/>`;
+    const hide=FL.mode==="find";
+    return `<g class="${cls.join(" ")}" data-t="${t.n}" tabindex="0" role="button" aria-label="${hide?"Tavolinë":"Tavolina "+t.n+", "+capTxt(t)+" persona"}">${shape}<text x="${t.x}" y="${t.y-3}" class="ftn">${hide&&!(FL.hit&&(FL.hit.n===t.n||FL.q.n===t.n))?"":t.n}</text>${hide?"":`<text x="${t.x}" y="${t.y+15}" class="ftc">${capTxt(t)}</text>`}</g>`}).join("");
+  const marks=`<g class="fmk"><path d="M296 170 h-30" /><text x="300" y="150">Dera e pedanës</text><path d="M296 880 h-30"/><text x="300" y="870">Hyrja e mysafirëve</text></g>`;
+  return `<svg viewBox="0 0 1200 930" class="fpsvg" role="img" aria-label="Skica e sallave dhe tavolinave">${zs}${marks}${ts}</svg>`;
+}
+function flDetail(){
+  const t=FLOOR.find(x=>x.n===FL.sel);if(!t)return `<p class="muted" style="margin:0">Kliko një tavolinë për të parë sallën dhe kapacitetin.</p>`;
+  const z=zoneOf(t.z);
+  return `<p class="eyebrow">${esc(z.n)}</p><h2 style="margin:0">Tavolina ${t.n}</h2><p style="margin:0">${t.min===t.max?`${t.max} persona`:`Nga ${t.min} deri në ${t.max} persona`}${t.round?", e rrumbullakët":""}.</p><p class="muted" style="margin:0;font-size:14px">${esc(z.d)}</p>`;
+}
+function flNewQ(){
+  const pool=FLOOR.filter(t=>!FL.z||t.z===FL.z);let q;do{q=pool[Math.floor(Math.random()*pool.length)]}while(pool.length>1&&FL.q&&q.n===FL.q.n);
+  FL.q=q;FL.hit=null;FL.fb="";
+}
+function viewFloor(){
+  const zsel=`<div class="seg" role="group" aria-label="Salla"><button data-fz="" aria-pressed="${!FL.z}">Të gjitha</button>${FLOOR_ZONES.map(z=>`<button data-fz="${z.k}" aria-pressed="${FL.z===z.k}">${esc(z.n)}</button>`).join("")}</div>`;
+  const modes=`<div class="seg" role="tablist" aria-label="Mënyra"><button data-fm="map" aria-pressed="${FL.mode==="map"}">Harta</button><button data-fm="find" aria-pressed="${FL.mode==="find"}">Gjej tavolinën</button><button data-fm="cap" aria-pressed="${FL.mode==="cap"}">Sa persona?</button><button data-fm="list" aria-pressed="${FL.mode==="list"}">Lista</button></div>`;
+  const tot=z=>FLOOR.filter(t=>t.z===z).reduce((a,t)=>a+t.max,0), cnt=z=>FLOOR.filter(t=>t.z===z).length;
+  const sum=`<div class="fsum">${FLOOR_ZONES.map(z=>`<div class="card"><p class="eyebrow">${esc(z.n)}</p><b style="font-size:22px">${cnt(z.k)}</b> tavolina · deri në <b>${tot(z.k)}</b> vende<p class="muted" style="margin:6px 0 0;font-size:13px">${esc(z.d)}</p></div>`).join("")}</div>`;
+  let side="";
+  if(FL.mode==="map")side=flDetail();
+  else if(FL.mode==="find"){if(!FL.q)flNewQ();side=`<p class="eyebrow">Ushtrim · ${FL.ok}/${FL.tot}</p><h2 style="margin:0">Ku është tavolina ${FL.q.n}?</h2><p class="muted" style="margin:0;font-size:14px">Numrat janë fshehur. Kliko te harta vendin e saktë.</p>${FL.fb?`<p class="fb ${FL.hit&&FL.hit.ok?"ok":"bad"}">${FL.fb}</p><button class="btn primary" data-fq="next">Tjetra →</button>`:""}`}
+  else if(FL.mode==="cap"){if(!FL.q)flNewQ();const opts=[...new Set(FLOOR.map(capTxt))].sort((a,b)=>{const f=x=>x.split('–').map(Number);const [a1,a2=a1]=f(a),[b1,b2=b1]=f(b);return a1-b1||a2-b2});
+    side=`<p class="eyebrow">Ushtrim · ${FL.ok}/${FL.tot}</p><h2 style="margin:0">Tavolina ${FL.q.n}: sa persona merr?</h2><p class="muted" style="margin:0;font-size:14px">${esc(zoneOf(FL.q.z).n)}</p><div class="row" style="flex-wrap:wrap;gap:6px">${opts.map(o=>`<button class="btn" data-fc2="${o}" ${FL.fb?"disabled":""}>${o}</button>`).join("")}</div>${FL.fb?`<p class="fb ${FL.hit&&FL.hit.ok?"ok":"bad"}">${FL.fb}</p><button class="btn primary" data-fq="next">Tjetra →</button>`:""}`}
+  const main=FL.mode==="list"?`<div class="grid2">${FLOOR_ZONES.filter(z=>!FL.z||z.k===FL.z).map(z=>`<section class="card stack"><h2 style="margin:0">${esc(z.n)}</h2><div class="tablewrap"><table><thead><tr><th>Tavolina</th><th style="text-align:right">Persona</th></tr></thead><tbody>${FLOOR.filter(t=>t.z===z.k).sort((a,b)=>a.n-b.n).map(t=>`<tr><td><b>${t.n}</b>${t.round?' <span class="muted">(e rrumbullakët)</span>':""}</td><td class="num">${capTxt(t)}</td></tr>`).join("")}</tbody></table></div></section>`).join("")}</div>`
+   :`<div class="fpwrap"><div class="card fpmap">${flSvg()}</div><aside class="card stack fpside" aria-live="polite">${side}</aside></div>`;
+  return `<section class="stack"><p class="eyebrow">Salla</p><h1>Planimetria</h1><p class="muted" style="max-width:66ch">Çdo kamarier duhet ta njohë sallën përmendësh: numrin e çdo tavoline, sa persona merr dhe nga hyjnë mysafirët. Kështu nuk ka pyetje “cila është 14-a?” gjatë shërbimit, dhe ushqimi shkon te tavolina e duhur pa u vonuar. Numri i dytë te çdo tavolinë është kapaciteti (min–maks).</p>${sum}${zsel}${modes}</section>${main}
+  ${S.isMgr?`<section class="card stack"><p class="eyebrow">Për shefin: konfirmo këto lexime të vizatimit</p><ul style="margin:0;padding-left:20px">${FLOOR_CHECK.map(c=>`<li>${esc(c)}</li>`).join("")}</ul><p class="muted" style="margin:0;font-size:13px">Pozicionet janë skicë e thjeshtuar e vizatimit, jo në shkallë. Pedana e vjetër shtohet kur të vijë vizatimi i saj.</p></section>`:""}`;
+}
+function bindFloor(){
+  const v=$("#view"), re=()=>{v.innerHTML=viewFloor();bindFloor()};
+  v.querySelectorAll("[data-fz]").forEach(b=>b.onclick=()=>{FL.z=b.dataset.fz;FL.q=null;FL.hit=null;FL.fb="";re()});
+  v.querySelectorAll("[data-fm]").forEach(b=>b.onclick=()=>{FL.mode=b.dataset.fm;FL.q=null;FL.hit=null;FL.fb="";FL.ok=0;FL.tot=0;re()});
+  v.querySelectorAll("[data-fq]").forEach(b=>b.onclick=()=>{flNewQ();re()});
+  v.querySelectorAll("[data-fc2]").forEach(b=>b.onclick=()=>{const ok=b.dataset.fc2===capTxt(FL.q);FL.tot++;if(ok)FL.ok++;FL.hit={n:FL.q.n,ok};FL.fb=ok?"Saktë.":`Jo. Tavolina ${FL.q.n} merr ${capTxt(FL.q)} persona.`;re()});
+  const pick=n=>{
+    if(FL.mode==="find"){if(FL.fb)return;const ok=n===FL.q.n;FL.tot++;if(ok)FL.ok++;FL.hit={n,ok};const t=FLOOR.find(x=>x.n===n);FL.fb=ok?"Saktë.":`Jo, kjo është tavolina ${n} (${esc(zoneOf(t.z).n)}). E sakta është shënuar me të gjelbër.`;re()}
+    else if(FL.mode==="map"){FL.sel=n;re()}
+  };
+  v.querySelectorAll("[data-t]").forEach(g=>{g.onclick=()=>pick(+g.dataset.t);g.onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();pick(+g.dataset.t)}}});
 }
 function viewFlash(){
   if(!MST.deck||MST.deck.r!==MST.r){MST.deck={r:MST.r,items:MENU.filter(d=>d.r===MST.r).map(x=>x).sort(()=>Math.random()-.5)};MST.ci=0;MST.flip=false}
