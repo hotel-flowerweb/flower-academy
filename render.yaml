@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: flower-academy
+    runtime: static
+    staticPublishPath: .
+    headers:
+      - path: /*
+        name: X-Robots-Tag
+        value: noindex
